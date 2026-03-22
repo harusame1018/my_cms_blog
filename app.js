@@ -185,6 +185,11 @@ app.post("/login",(req,res) => {
         res.send("error")
     }
 })
+
+app.get("/admin/post",(req,res) => {
+    res.sendFile(__dirname + "/views/admin/post.html");
+})
+
 app.get("/admin_panel",(req,res) => {
     if (req.cookies.admin !== admin_token || !req.cookies.admin) {
         return res.send("ログインしてください");
