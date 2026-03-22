@@ -4,27 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .header-list {
+        .header-list li {
             list-style: none;
+            padding: 10px 20px;
+        }
+        .header-list ul {
+            display:flex;
+        }
+        .header-list {
+            background-color: #81b58f;
+            max-width: fit-content;
+            margin:auto;
         }
         img {
            max-width:400px;
            max-height:400px; 
         }
         .main {
-            padding: 10px 3px 0px 70px; 
+            padding: 10px 3px 0px 60px;
+            margin-left:50px;
+            background-color: antiquewhite;
+            max-width: 1300px;
         }
     </style>
     <title><%= title %></title>
 </head>
 <body>
-    <header>
+   <header>
         <nav>
-            <ul>
-                <div class="header-list">
-                    <li><a href="/news">お知らせ一覧</a></li>
-                </div>
-            </ul>
+            <div class="header-list">
+                <ul>
+                    <li><h1>はるさめブログ</h1></li>
+                    <li><h2><a href="/news">お知らせ一覧</a></h2></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="main">
