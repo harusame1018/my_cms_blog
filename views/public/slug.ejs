@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header-list {
+            list-style: none;
+        }
+        img {
+           max-width:400px;
+           max-height:400px; 
+        }
+        .main {
+            padding: 10px 3px 0px 70px; 
+        }
+    </style>
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="header-list">
+                    <li><a href="/news">お知らせ一覧</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="main">
+        <%- body %>
+    </div>
+</body>
+</html>

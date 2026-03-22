@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post page</title>
+</head>
+<body>
+    <form action="/admin/post" method="post" enctype="multipart/form-data">
+        <label for="title">タイトル:</label>
+        <input type="text" id="title" name="title">
+        <textarea id="body" name="body"></textarea>
+        <label>見出し:</label>
+        <input type="text" id="headline" name="headline">
+        <input type="file" accept="image/*" id="file" name="file" multiple>
+        <button type="submit">投稿</button>
+    </form>
+</body>
+</html>

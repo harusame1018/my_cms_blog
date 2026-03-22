@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お知らせ一覧</title>
+    <script>
+        function delete_post(post_name) {
+            const send_data = {
+                slug:post_name
+            }
+            fetch("/admin/delete", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(send_data)
+            }).catch(error => console.error("error:",error))
+            location.href = "/news"
+        }
+    </script>
+</head>
+<body>
+    <h1>お知らせ一覧</h1>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <div class="post_card">
+                    <h2>
+                        <a href="/news/<%= post.slug %>"><%= post.title %></a>
+                        <button onclick="delete_post('<%= post.slug %>')">投稿削除</button>
+                    </h2>
+                    <h3><%= post.headline %></h3>
+                </div>
+            </li>
+            <br>
+        <% }) %>
+    </ul>
+</body>
+</html>

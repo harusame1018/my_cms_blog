@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+</head>
+<body>
+    <h1>welcome to admin page</h1>
+    <a href="post.html">投稿</a>
+    <a href="/admin/delete_page">投稿削除</a>
+    <h1>お知らせ一覧</h1>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <h2><a href="/news/<%= post.slug %>"><%= post.title %></a><br><a href="/admin/edit/<%= post.slug %>">編集</a></h2>
+                <h3><%= post.headline %></h3>
+            </li>
+            <br>
+        <% }) %>
+    </ul>
+</body>
+</html>

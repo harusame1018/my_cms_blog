@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header-list li {
+            list-style: none;
+            padding: 10px 20px;
+        }
+        .header-list ul {
+            display:flex;
+        }
+        .header-list {
+            background-color: #81b58f;
+            max-width: fit-content;
+            margin:auto;
+        }
+        .main {
+            padding-left:60px;
+        }
+        .post_card {
+            background-color: #ccd674;
+            height:100px;
+            width:200px;
+            padding:1px 0px 30px 20px;
+        }
+        .main li {
+            list-style: none;
+        }
+    </style>
+    <title>お知らせ一覧</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header-list">
+                <ul>
+                    <li><h1>はるさめブログ</h1></li>
+                    <li><h2><a href="/news">お知らせ一覧</a></h2></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="main">
+        <h1>お知らせ一覧</h1>
+        <ul>
+            <% posts.forEach(post => { %>
+                <li>
+                    <div class="post_card">
+                        <h2><a href="/news/<%= post.slug %>"><%= post.title %></a></h2>
+                        <h3><%= post.headline %></h3>
+                    </div>
+                </li>
+                <br>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

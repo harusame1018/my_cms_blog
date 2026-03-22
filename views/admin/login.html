@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+        <script>
+            window.onload = function() {
+                login()
+            }
+            async function login() {
+                username_input = window.prompt("名前を入力してください")
+                password_input = window.prompt("パスワードを入力してください")
+                const send_data = {
+                    username: username_input,
+                    password: password_input
+                };
+                fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(send_data)
+                })
+                .catch(error => console.error("error:",error))
+                await wait(1)
+                location.href = "/admin_panel"
+            }
+
+            async function wait(second) {
+                return new Promise(resolve => setTimeout(resolve,1000 * second));
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
