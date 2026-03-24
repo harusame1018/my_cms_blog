@@ -174,8 +174,9 @@ app.post("/login",(req,res) => {
     let request_body = req.body;
     let password_input = request_body.password;
     let username_input = request_body.username;
-
-    if (password_input == "ofjaeog193490" && username_input == "jgoiejw225623") {
+    let admin_name = process.env.ADMIN_NAME;
+    let admin_pass = process.env.ADMIN_PASS;
+    if (password_input == admin_pass && username_input == admin_name) {
         console.log("correct login");
         console.log("token:", admin_token);
         res.cookie("admin",admin_token,{httpOnly: true,secure: true,sameSite: "lax"});
