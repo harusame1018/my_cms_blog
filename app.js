@@ -46,7 +46,8 @@ app.get("/news",(req,res) => {
         return {
             slug:file.replace(".md",""),
             title:data.data.title,
-            headline:data.data.headline
+            headline:data.data.headline,
+            date:data.data.date
         };
     })
     res.render("public/news",{posts})
@@ -58,7 +59,8 @@ app.get("/news/:slug",(req,res) => {
     const content = fm(news_file);
     const news_content = marked.parse(content.body);
     const news_title = content.attributes.title;
-    res.render("public/slug", { title: news_title,body: news_content });
+    const news_date = content.attributes.date;
+    res.render("public/slug", { title: news_title,body: news_content,date: news_date });
 })
 
 app.post("/admin/post",upload.single("file"),(req,res) => {
@@ -69,12 +71,17 @@ app.post("/admin/post",upload.single("file"),(req,res) => {
     const title = req.body.title;
     const body = req.body.body;
     const headline = req.body.headline;
+    
+    const dt = new Date();
+    const today = dt.toFormat("YYYY年MM月DD日HH24時MI分")
+
     const matter_data = {
         title: title,
-        headline: headline
+        headline: headline,
+        date: today
     };
 
-    const dt = new Date();
+    
     const filename = __dirname + "/posts/" + dt.toFormat("YYYY-MM-DD-HH24-MI") + ".md";
 
     const file_content = gm.stringify(body,matter_data);

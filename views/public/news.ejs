@@ -22,7 +22,7 @@
         }
         .post_card {
             background-color: #ccd674;
-            height:100px;
+            height:150px;
             width:300px;
             padding:1px 0px 30px 20px;
         }
@@ -41,7 +41,7 @@
             }
             .post_card {
                 width:200px;
-                height:100px;
+                height:150px;
             }
             .main ul {
                 margin:auto;
@@ -81,6 +81,7 @@
             <% posts.forEach(post => { %>
                 <li>
                     <div class="post_card">
+                        <h4><%= post.date %></h4>
                         <h2><a href="/news/<%= post.slug %>"><%= post.title %></a></h2>
                         <h3><%= post.headline %></h3>
                     </div>
