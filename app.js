@@ -39,7 +39,7 @@ app.set("view engine","ejs");
 app.set("views", __dirname + "/views");
 
 app.get("/test_page",(req,res) => {
-    res.sendFile("public/main.html");
+    res.render("public/main");
 })
 
 app.get("/news",(req,res) => {
