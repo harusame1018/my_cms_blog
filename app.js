@@ -44,7 +44,7 @@ app.get("/test_page",(req,res) => {
 
 app.get("/hello",(req,res) => {
     res.send("hello world!");
-}
+})
 
 app.get("/news",(req,res) => {
     const files = fs.readdirSync(path.join(__dirname + "/posts"))
