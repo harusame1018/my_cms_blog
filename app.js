@@ -39,8 +39,12 @@ app.set("view engine","ejs");
 app.set("views", __dirname + "/views");
 
 app.get("/test_page",(req,res) => {
-    res.sendFile(path.join(__dirname,"views","public","main.html"));
+    res.render("public/main");
 })
+
+app.get("/hello",(req,res) => {
+    res.send("hello world!");
+}
 
 app.get("/news",(req,res) => {
     const files = fs.readdirSync(path.join(__dirname + "/posts"))
