@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.get("/",(req,res) => {
     res.redirect("/news");
